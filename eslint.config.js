@@ -20,7 +20,7 @@ export default [
       "@angular-eslint": angularPlugin,
     },
     rules: {
-      "prettier/prettier": "error",
+      "prettier/prettier": ["error", { endOfLine: "auto" }],
       // other rules...
     },
   },

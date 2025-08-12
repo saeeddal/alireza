@@ -1,2 +1,9 @@
-<p>main-layout works!</p>
- <router-outlet />
+<app-header />
+<div class="main-layout">
+  <div class="sidebar">
+    <app-sidebar />
+  </div>
+  <div class="main-content">
+    <router-outlet />
+  </div>
+</div>

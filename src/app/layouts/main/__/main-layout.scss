@@ -1,0 +1,25 @@
+@use "@angular/material" as mat;
+.main-layout {
+  display: flex;
+  height: 100vh;
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
+  font-family: Roboto, sans-serif;
+  overflow: hidden;
+
+  .sidebar {
+    width: 280px;
+    max-width: 30vw;
+    border-inline-end: 1px solid var(--md-sys-color-outline);
+    box-sizing: border-box;
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface);
+  }
+}

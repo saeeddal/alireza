@@ -1,0 +1,18 @@
+<mat-toolbar class="header-toolbar" color="primary">
+  <span class="app-title">FID-PAM</span>
+
+  <span class="spacer"></span>
+
+  <select
+    [value]="language()"
+    (change)="onLanguageChange($event)"
+    class="lang-select"
+  >
+    <option value="en">English</option>
+    <option value="fa">فارسی</option>
+  </select>
+
+  <button mat-icon-button (click)="exitApp()" aria-label="Exit">
+    <mat-icon style="color: white">logout</mat-icon>
+  </button>
+</mat-toolbar>

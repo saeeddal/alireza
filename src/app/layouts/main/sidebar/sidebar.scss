@@ -1,0 +1,43 @@
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  color: white !important;
+  background-color: #262e34;
+  height: 92vh;
+}
+
+.sidebar-item {
+  padding: 12px 16px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: transparent;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+
+  // Hover
+  &:hover {
+    background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  // Active (mouse down)
+  &:active {
+    background-color: mix(white, #262e34, 30);
+  }
+
+  &.active {
+    background-color: mix(white, #262e34, 20);
+  }
+  // RTL support
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}

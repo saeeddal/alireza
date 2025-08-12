@@ -5,6 +5,14 @@ export const MAIN_LAYOUT_ROUTES: Routes = [
   {
     path: '',
     component: MainLayout,
-    children: [],
+    children: [
+      {
+        path: '',
+        loadChildren: async () =>
+          import('../../../pages/main/_/main.routes').then(
+            (r) => r.MAIN_ROUTES,
+          ),
+      },
+    ],
   },
 ];

@@ -1,0 +1,47 @@
+<div class="sidenav-container" [dir]="direction()">
+  <ul class="sidebar-list">
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'dashboard'"
+      routerLink="/dashboard"
+    >
+      Dashboard
+    </li>
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'activeSessions'"
+      routerLink="/activeSessions"
+    >
+      ActiveSessions
+    </li>
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'groups'"
+      routerLink="/groups"
+    >
+      Groups
+    </li>
+
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'histories'"
+      routerLink="/histories"
+    >
+      histories
+    </li>
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'users'"
+      routerLink="/users"
+    >
+      Users
+    </li>
+    <li
+      class="sidebar-item"
+      [class.active]="selected() === 'preferences'"
+      routerLink="/preferences"
+    >
+      Preferences
+    </li>
+  </ul>
+</div>

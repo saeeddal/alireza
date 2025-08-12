@@ -1,1 +1,28 @@
-<p>login works!</p>
+<mat-card class="login-card">
+  <h2>Login</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>What is {{ captcha().a }} + {{ captcha().b }}?</mat-label>
+      <input matInput formControlName="captcha" />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Login
+    </button>
+  </form>
+</mat-card>

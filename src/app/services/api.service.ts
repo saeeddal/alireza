@@ -20,6 +20,7 @@ export class ApiService {
   ): Observable<TResponse> {
     return this.http.post<TResponse>(`${this.baseUrl}${endpoint}`, body, {
       headers,
+      withCredentials: true,
     });
   }
 

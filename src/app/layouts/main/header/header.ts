@@ -22,7 +22,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class Header {
   language = signal<'fa' | 'en'>('en');
-
   onLanguageChange(event: Event) {
     const selectedLang = (event.target as HTMLSelectElement).value as
       | 'fa'

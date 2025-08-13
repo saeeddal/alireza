@@ -5,6 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { ApiService } from '../../../services/api.service';
+import {
+  LoginRequestModel,
+  LoginResponseFailedModel,
+  LoginResponseSuccessModel,
+} from '../../../models/login';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +27,7 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class Login {
   private fb = inject(FormBuilder);
+  private apiService = inject(ApiService);
 
   captcha = signal({ a: this.rand(), b: this.rand() });
 
@@ -39,13 +46,20 @@ export class Login {
   submit() {
     const expected = this.captcha().a + this.captcha().b;
     const actual = parseInt(this.form.value.captcha || '', 10);
-
-    if (actual === expected) {
-      alert('✅ Login successful!');
-    } else {
+    const { username, password } = this.form.value;
+    if (actual !== expected) {
       alert('❌ Captcha failed. Try again.');
       this.captcha.set({ a: this.rand(), b: this.rand() });
       this.form.patchValue({ captcha: '' });
+    } else if (username && password) {
+      this.apiService
+        .post<
+          LoginRequestModel,
+          LoginResponseSuccessModel | LoginResponseFailedModel
+        >('/tokens', { username: username, password: password })
+        .subscribe((response) => {
+          console.log('Login success:', response);
+        });
     }
   }
 }
